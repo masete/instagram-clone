@@ -12,10 +12,7 @@ import FirebaseContext from './context/firebase';
 //   document.getElementById('root')
 // );
 
-ReactDOM.render(
-  <FireBaseWrapper />,
-  document.getElementById('root')
-);
+ReactDOM.render(<FireBaseWrapper />, document.getElementById('root'));
 
 const FireBaseWrapper = () => {
   const fireBaseProviderValue= useMemo(() => ({ firebase, FieldValue }), [firebase, FieldValue]);
