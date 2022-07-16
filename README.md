@@ -14,11 +14,13 @@
 
 ## Architecture
 
-### Folder structure
+### Folder structure in src
 - Components
 - Constants
 - Context
 - Helpers
+- Pages
+- Hooks
 - Lib(Firebase will live here)
 - Services(Firebase functions will live here)
 - Styles(Tailwind css(app/Tailwind))
