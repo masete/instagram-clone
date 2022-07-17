@@ -1,19 +1,22 @@
-import { useMemo, React } from 'react';
-// import React from 'react';
-// import ReactDOM from 'react-dom';
+import { React, useMemo }from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 import { firebase, FieldValue } from './lib/firebase';
 import FirebaseContext from './context/firebase';
 
-
 const container = document.getElementById('root');
-const root = createRoot(container); // createRoot(container!) if you use TypeScript
-root.render(
-<FirebaseContext.Provider value={{ firebase, FieldValue }}>
-  <App />
-</FirebaseContext.Provider>
+const root = createRoot(container);
+const FireBaseWrapper = () => {
+  const fireBaseProviderValue = useMemo(() => ({ firebase, FieldValue }), [firebase, FieldValue]);
+return (
+  <FirebaseContext.Provider value={fireBaseProviderValue}>
+    <App />
+  </FirebaseContext.Provider>   
 );
+}
+
+root.render(<FireBaseWrapper tab="instagram"/>);
+
 // ReactDOM.render(
 //   <FirebaseContext.Provider value={{ firebase, FieldValue }}>
 //     <App />
@@ -30,5 +33,3 @@ root.render(
 //     <App />
 //   </FirebaseContext.Provider>)
 // }
-
-
