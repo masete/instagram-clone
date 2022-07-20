@@ -1,3 +1,4 @@
-export const future = {
-    removeDeprecatedGapUtilities: true
-};
+module.exports = {
+    future: {
+      removeDeprecatedGapUtilities: true
+    }}
