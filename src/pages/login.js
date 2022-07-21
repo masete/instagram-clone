@@ -24,13 +24,36 @@ export default function Login() {
 
     return (
         <div className="container flex mx-auto max-w-screen-md items-center h-screen">
-          <p>i have no idea</p>
-          {/* <div className="w-3/5 h-12">
+          <div className="flex w-3/5">
             <img src="/images/iphone-with-profile.jpg" alt="iPhone with Instagram app" />
           </div>
-          <div className='w-2/5 h-12'>
-            <p>I will be the form .......</p>
-          </div> */}
+          <div className='flex flex-col w-2/5'>
+            <h1 className='flex justify-center w-full'>
+            <img src='images/logo.png' alt='instagram logo' className='mt-2 w-6/12 mb-4' />
+            {error && <p className='mb-4 text-xs text-red-primary'>{error}</p>}
+          </h1>
+
+          <form className='onSubmit={handleLogin} method="POST"'>
+            <input
+            aria-label="Please enter your email address"
+            type='text'
+            placeholder='Email address'
+            className='text-sm text-gray-primary w-full mr-3 py-5 px-4 h-2 border 
+            border-gray-primary rounded mb-2'
+            onChange={({ target })=> setEmailAddress(target.value)}
+            />
+
+            <input
+            aria-label="Please enter your password"
+            type='password'
+            placeholder='Password'
+            className='text-sm text-gray-primary w-full mr-3 py-5 px-4 h-2 border 
+            border-gray-primary rounded mb-2'
+            onChange={({ target })=> setPassword(target.value)}
+            />
+          </form>
+          </div>
+         
         </div>
       );
     }
