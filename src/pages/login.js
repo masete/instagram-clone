@@ -12,7 +12,7 @@ export default function Login() {
     const [password, setPassword] = useState();
 
     const[error, setError] = useState();
-    const IsInvalid = password === "" || emailAddress === "";
+    const isInvalid = password === '' || emailAddress === '';
 
     useEffect(() => {
         document.title = 'Login - Instagram'
@@ -51,6 +51,15 @@ export default function Login() {
             border-gray-primary rounded mb-2'
             onChange={({ target })=> setPassword(target.value)}
             />
+
+            <button
+              disabled={isInvalid}
+              type="submit"
+              className={`bg-blue-500 text-white w-full rounded h-8 font-bold
+            ${isInvalid && 'opacity-50'}`}
+            >
+              Login
+            </button>
           </form>
           </div>
          
