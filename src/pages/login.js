@@ -2,6 +2,7 @@ import { getByTitle } from '@testing-library/react';
 import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
+import * as ROUTES from '../constants/routes'
 
 export default function Login() {
 
@@ -18,8 +19,17 @@ export default function Login() {
         document.title = 'Login - Instagram'
     }, [])
 
-    const handleLogin = () =>{
+    const handleLogin = async (event) =>{
+      event.preventDefault();
 
+      try {
+        await firebase.auth().signInWithEmailAndPassword(emailAddress, password);
+        navigate.push(ROUTES.DASHBOARD)
+      } catch (error) {
+        setEmailAddress('');
+        setPassword('');
+        setError(error.message);
+      }
     }
 
     return (
@@ -35,7 +45,7 @@ export default function Login() {
             {error && <p className='mb-4 text-xs text-red-primary'>{error}</p>}
           </h1>
 
-          <form className='onSubmit={handleLogin} method="POST"'>
+          <form onSubmit={handleLogin} method="POST">
             <input
             aria-label="Please enter your email address"
             type='text'
