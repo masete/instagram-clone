@@ -1,6 +1,6 @@
 import { getByTitle } from '@testing-library/react';
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
 
 export default function Login() {
@@ -66,7 +66,8 @@ export default function Login() {
           </div>
           <div className='flex justify-center items-center flex-col w-full big-white p-4
            border border-gray-primary'>
-            <p className='text-sm'> I dont have an account</p>
+            <p className='text-sm'> I don't have an account?{'  '}
+             <Link to='signup' className='font-bold text-blue-medium'>Sign Up</Link></p>
           </div>
           </div>
          
