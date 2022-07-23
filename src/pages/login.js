@@ -27,7 +27,9 @@ export default function Login() {
           <div className="flex w-3/5">
             <img src="/images/iphone-with-profile.jpg" alt="iPhone with Instagram app" />
           </div>
+
           <div className='flex flex-col w-2/5'>
+            <div className='flex flex-col bg-white p-4 border border-gray-primary'>
             <h1 className='flex justify-center w-full'>
             <img src='images/logo.png' alt='instagram logo' className='mt-2 w-6/12 mb-4' />
             {error && <p className='mb-4 text-xs text-red-primary'>{error}</p>}
@@ -61,6 +63,11 @@ export default function Login() {
               Login
             </button>
           </form>
+          </div>
+          <div className='flex justify-center items-center flex-col w-full big-white p-4
+           border border-gray-primary'>
+            <p className='text-sm'> I dont have an account</p>
+          </div>
           </div>
          
         </div>
