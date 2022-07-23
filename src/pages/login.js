@@ -29,7 +29,7 @@ export default function Login() {
           </div>
 
           <div className='flex flex-col w-2/5'>
-            <div className='flex flex-col bg-white p-4 border border-gray-primary'>
+            <div className='flex flex-col bg-white p-4 border border-gray-primary rounded'>
             <h1 className='flex justify-center w-full'>
             <img src='images/logo.png' alt='instagram logo' className='mt-2 w-6/12 mb-4' />
             {error && <p className='mb-4 text-xs text-red-primary'>{error}</p>}
@@ -65,7 +65,7 @@ export default function Login() {
           </form>
           </div>
           <div className='flex justify-center items-center flex-col w-full big-white p-4
-           border border-gray-primary'>
+           border border-gray-primary rounded'>
             <p className='text-sm'> I don't have an account?{'  '}
              <Link to='signup' className='font-bold text-blue-medium'>Sign Up</Link></p>
           </div>
