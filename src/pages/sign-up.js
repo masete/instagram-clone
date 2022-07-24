@@ -2,9 +2,9 @@ import { getByTitle } from '@testing-library/react';
 import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
-import * as ROUTES from '../constants/routes'
+import * as ROUTES from '../constants/routes';
 
-export default function Login() {
+export default function SignUp() {
 
     const navigate = useNavigate();
     const { firebase } = useContext(FirebaseContext)
@@ -16,19 +16,16 @@ export default function Login() {
     const isInvalid = password === '' || emailAddress === '';
 
     useEffect(() => {
-        document.title = 'Login - Instagram'
+        document.title = 'SignUp - Instagram'
     }, [])
 
-    const handleLogin = async (event) =>{
+    const handleSignUp = async (event) =>{
       event.preventDefault();
 
       try {
-        await firebase.auth().signInWithEmailAndPassword(emailAddress, password);
-        navigate.push(ROUTES.DASHBOARD)
+        
       } catch (error) {
-        setEmailAddress('');
-        setPassword('');
-        setError(error.message);
+
       }
     }
 
@@ -45,7 +42,7 @@ export default function Login() {
             {error && <p className='mb-4 text-xs text-red-primary'>{error}</p>}
           </h1>
 
-          <form onSubmit={handleLogin} method="POST">
+          <form onSubmit={handleSignUp} method="POST">
             <input
             aria-label="Please enter your email address"
             type='text'
@@ -77,7 +74,7 @@ export default function Login() {
           <div className='flex justify-center items-center flex-col w-full big-white p-4
            border border-gray-primary rounded'>
             <p className='text-sm'> I don't have an account?{'  '}
-             <Link to='sign-up' className='font-bold text-blue-medium'>Sign Up</Link></p>
+             <Link to='login' className='font-bold text-blue-medium'>Log In</Link></p>
           </div>
           </div>
          
