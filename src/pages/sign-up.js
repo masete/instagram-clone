@@ -3,11 +3,16 @@ import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import FirebaseContext from '../context/firebase';
 import * as ROUTES from '../constants/routes';
+import { doesUserNameExist } from '../services/firebase';
 
 export default function SignUp() {
 
     const navigate = useNavigate();
     const { firebase } = useContext(FirebaseContext)
+
+
+    const [username, setUserName] = useState();
+    const [fullName, setFullName] = useState();
 
     const [emailAddress, setEmailAddress] = useState();
     const [password, setPassword] = useState();
@@ -22,10 +27,13 @@ export default function SignUp() {
     const handleSignUp = async (event) =>{
       event.preventDefault();
 
-      try {
-        
-      } catch (error) {
-
+      const usernameExists = await doesUserNameExist(username);
+      if(usernameExists) {
+        try{
+          const createdUserResult = await firebase
+          .auth()
+          .createUserWithEmailAndPassword(emailAddress, password)
+        } catch (error){}
       }
     }
 
@@ -43,6 +51,26 @@ export default function SignUp() {
           </h1>
 
           <form onSubmit={handleSignUp} method="POST">
+
+          <input
+            aria-label="Please enter your username"
+            type='text'
+            placeholder='Username'
+            className='text-sm text-gray-primary w-full mr-3 py-5 px-4 h-2 border 
+            border-gray-primary rounded mb-2'
+            onChange={({ target })=> setUserName(target.value)}
+            value={username}
+            />
+
+          <input
+            aria-label="Please enter your full Name"
+            type='text'
+            placeholder='Full-name'
+            className='text-sm text-gray-primary w-full mr-3 py-5 px-4 h-2 border 
+            border-gray-primary rounded mb-2'
+            onChange={({ target })=> setFullName(target.value)}
+            value={fullName}
+            />
             <input
             aria-label="Please enter your email address"
             type='text'
@@ -50,6 +78,7 @@ export default function SignUp() {
             className='text-sm text-gray-primary w-full mr-3 py-5 px-4 h-2 border 
             border-gray-primary rounded mb-2'
             onChange={({ target })=> setEmailAddress(target.value)}
+            value={ emailAddress }
             />
 
             <input
@@ -59,6 +88,7 @@ export default function SignUp() {
             className='text-sm text-gray-primary w-full mr-3 py-5 px-4 h-2 border 
             border-gray-primary rounded mb-2'
             onChange={({ target })=> setPassword(target.value)}
+            value={password}
             />
 
             <button
@@ -67,14 +97,14 @@ export default function SignUp() {
               className={`bg-blue-medium text-white w-full rounded h-8 font-bold
             ${isInvalid && 'opacity-50'}`}
             >
-              Login
+              Sign Up
             </button>
           </form>
           </div>
           <div className='flex justify-center items-center flex-col w-full big-white p-4
            border border-gray-primary rounded'>
-            <p className='text-sm'> I don't have an account?{'  '}
-             <Link to='login' className='font-bold text-blue-medium'>Log In</Link></p>
+            <p className='text-sm'> You already have an account?{'  '}
+             <Link to={ROUTES.LOGIN} className='font-bold text-blue-medium'>Log In</Link></p>
           </div>
           </div>
          
