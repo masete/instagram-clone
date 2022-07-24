@@ -77,7 +77,7 @@ export default function Login() {
           <div className='flex justify-center items-center flex-col w-full big-white p-4
            border border-gray-primary rounded'>
             <p className='text-sm'> I don't have an account?{'  '}
-             <Link to='sign-up' className='font-bold text-blue-medium'>Sign Up</Link></p>
+             <Link to={ROUTES.SIGN_UP} className='font-bold text-blue-medium'>Sign Up</Link></p>
           </div>
           </div>
          
