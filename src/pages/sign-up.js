@@ -22,7 +22,8 @@ export default function SignUp() {
 
     useEffect(() => {
         document.title = 'SignUp - Instagram'
-    }, [])
+    }, []);
+
 
     const handleSignUp = async (event) =>{
       event.preventDefault();
@@ -50,7 +51,12 @@ export default function SignUp() {
             dateCreated: Date.now()
           });
 
-          navigate.push(ROUTES.DASHBOARD)
+
+          
+            navigate(ROUTES.DASHBOARD);
+          
+
+          
         } catch (error){
           setUserName('');
           setFullName('');
