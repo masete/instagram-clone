@@ -46,6 +46,7 @@ export default function Login() {
           </h1>
 
           <form onSubmit={handleLogin} method="POST">
+
             <input
             aria-label="Please enter your email address"
             type='text'
@@ -53,6 +54,7 @@ export default function Login() {
             className='text-sm text-gray-primary w-full mr-3 py-5 px-4 h-2 border 
             border-gray-primary rounded mb-2'
             onChange={({ target })=> setEmailAddress(target.value)}
+            value={emailAddress}
             />
 
             <input
@@ -62,6 +64,7 @@ export default function Login() {
             className='text-sm text-gray-primary w-full mr-3 py-5 px-4 h-2 border 
             border-gray-primary rounded mb-2'
             onChange={({ target })=> setPassword(target.value)}
+            value={password}
             />
 
             <button
