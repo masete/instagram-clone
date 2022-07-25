@@ -33,7 +33,27 @@ export default function SignUp() {
           const createdUserResult = await firebase
           .auth()
           .createUserWithEmailAndPassword(emailAddress, password)
-        } catch (error){}
+
+          //authentication
+          //-> emailAdress & password + username (displayName)
+          await createdUserResult.user.updateProfile({
+            displayName: username
+          });
+
+          //firebase collection, (create a document)
+          await firebase.firestore().collection('users').add({
+            userId : createdUserResult.user.uid,
+            username: username.toLowerCase(),
+            fullName,
+            emailAddress: emailAddress.toLowerCase(),
+            following: [],
+            dateCreated: Date.now()
+          });
+
+          navigate.push(ROUTES.DASHBOARD)
+        } catch (error){
+          
+        }
       }
     }
 
