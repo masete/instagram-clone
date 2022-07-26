@@ -4,6 +4,7 @@ import * as ROUTES from './constants/routes'
 
 const Login = lazy(() => import('./pages/login'));
 const SignUp = lazy(() => import('./pages/sign-up'));
+const NotFound = lazy(() => import('./pages/not-found'));
 
 function App() {
    
@@ -12,8 +13,13 @@ function App() {
       <Router>
         <Suspense fallback={<p>Loading .....</p>}>
           <Routes>
+            <Route path='*' element={ <NotFound /> }/>;
+
+
+
             <Route path={ROUTES.LOGIN} element={ <Login /> }/>;
             <Route path={ROUTES.SIGN_UP} element={ <SignUp /> }/>;
+            
           </Routes>
         </Suspense>
 
