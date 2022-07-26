@@ -3,6 +3,7 @@ import Timeline from "../components/timeline";
 import Sidebar from "../components/sidebar";
 
 const Dashboard = () =>{
+
     return (
         <div className="bg-gray-background">
             <Header />
