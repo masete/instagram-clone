@@ -1,5 +1,11 @@
+import { useEffect } from "react";
+
 
 const PageNotFound = () =>{
+
+    useEffect(()=>{
+        document.title ='Instagra - Page Not Found';
+    }, []);
 
     return (
     <div className="bg-gray-background">
