@@ -2,7 +2,7 @@
 export function seedDatabase(firebase) {
     const users = [
       {
-        userId: '6ruipLHZxzQBqcgt9OEVIkM0DZr1',
+        userId: 'WIMnHd47wxOTWL3mCYK8hPFpSHO2',
         username: 'masete',
         fullName: 'nicholas masete',
         emailAddress: 'nicholasmasete72@gmail.com',

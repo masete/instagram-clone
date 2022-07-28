@@ -1,6 +1,6 @@
 import Header from "../components/header";
 import Timeline from "../components/timeline";
-import Sidebar from "../components/sidebar";
+import Sidebar from "../components/sidebar/sidebar";
 
 const Dashboard = () =>{
 

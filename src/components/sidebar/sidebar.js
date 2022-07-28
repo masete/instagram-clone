@@ -3,6 +3,7 @@ import User from './user';
 import Suggestion from './suggestion';
 
 export default function Sidebar() {
+
     const { user: fullName, username, userId } = useUser();
     
     return (
@@ -12,4 +13,3 @@ export default function Sidebar() {
         </div>
     )
 };
-
