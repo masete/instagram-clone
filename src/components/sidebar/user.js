@@ -1,6 +1,7 @@
 const User = () =>{
     return (
     <>
+    <p>a the user</p>
     </>)
 };
 
