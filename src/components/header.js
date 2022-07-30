@@ -30,13 +30,13 @@ const Header = () =>{
 };
 
 export default Header;
-// import { useContext } from 'react';
-// import { Link, useNavigate } from 'react-router-dom';
-// import FirebaseContext from '../context/firebase';
-// import UserContext from '../context/user';
-// import * as ROUTES from '../constants/routes';
-// import { DEFAULT_IMAGE_PATH } from '../constants/paths';
-// import useUser from '../hooks/use-user';
+import { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import FirebaseContext from '../context/firebase';
+import UserContext from '../context/user';
+import * as ROUTES from '../constants/routes';
+import { DEFAULT_IMAGE_PATH } from '../constants/paths';
+import useUser from '../hooks/use-user';
 
 // export default function Header() {
 //   const { user: loggedInUser } = useContext(UserContext);
