@@ -23,6 +23,9 @@ const Header = () =>{
              </h1>  
           </div>
         </div>
+        <div className="text-gray-700 text-center flex items-center align-items">
+          <p>Hey!</p>
+        </div>
       </div>
     </header>
     </>
@@ -30,19 +33,6 @@ const Header = () =>{
 };
 
 export default Header;
-import { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import FirebaseContext from '../context/firebase';
-import UserContext from '../context/user';
-import * as ROUTES from '../constants/routes';
-import { DEFAULT_IMAGE_PATH } from '../constants/paths';
-import useUser from '../hooks/use-user';
-
-export default function Header() {
-  const { user: loggedInUser } = useContext(UserContext);
-  const { user } = useUser(loggedInUser?.uid);
-  const { firebase } = useContext(FirebaseContext);
-  const navigate = useNavigate();
 
 //   return (
 //     <header className="h-16 bg-white border-b border-gray-primary mb-8">
